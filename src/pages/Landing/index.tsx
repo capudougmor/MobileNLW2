@@ -1,17 +1,54 @@
-import React from 'react'
-import { View, Image, Text } from 'react-native'
+import React from 'react';
+import { Image, View, Text, TouchableOpacity } from 'react-native';
 
-import styles from './styles'
+import styles from './styles';
 
-import landingImg from '../../assets/images/landing.png'
+import landingImg from '../../assets/images/landing.png';
+import studyIcon from '../../assets/images/icons/study.png';
+import giveClassesIcon from '../../assets/images/icons/give-classes.png';
+import heartIcon from '../../assets/images/icons/heart.png';
 
-function Landing() {
-    return (
-        <View>
-            <Image source={landingImg} />
-            <Text>ok</Text>
-        </View>
-    )
-}
+const Landing: React.FC = () => {
 
-export default Landing
+  function handleGiveClasses() {
+  }
+
+  function handleStudy() {
+  }
+
+  return (
+    <View style={styles.container} >
+      <Image source={landingImg} style={styles.banner} />
+
+      <Text style={styles.title}>
+        Seja bem vindo, {'\n'}
+        <Text style={styles.titleBold} >O que deseja fazer?</Text>
+      </Text>
+
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity style={[styles.button, styles.buttonPrimary]}>
+          <Image source={studyIcon} />
+          <Text style={styles.buttonText}>
+            Estudar
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.button, styles.buttonSecundary]}>
+          <Image source={giveClassesIcon} />
+          <Text style={styles.buttonText}>
+            Dar aulas
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text style={styles.totolConnections}>
+        Total de 250 conexões realizadas {' '}
+        <Image source={heartIcon} />
+      </Text>
+
+
+    </View>
+  );
+};
+
+export default Landing;
