@@ -7,19 +7,16 @@ import landingImg from '../../assets/images/landing.png';
 import studyIcon from '../../assets/images/icons/study.png';
 import giveClassesIcon from '../../assets/images/icons/give-classes.png';
 import heartIcon from '../../assets/images/icons/heart.png';
+import PageHeader from '../../componetes/PageHeader';
 
-const GiveClasses: React.FC = () => {
+const TeacherList: React.FC = () => {
 
   
   return (
     <View style={styles.container} >
-      <Text>
-        ola
-      </Text>
-
-
+      <PageHeader title='Proffys disponíveis' /> 
     </View>
   );
 };
 
-export default GiveClasses;
+export default TeacherList;
