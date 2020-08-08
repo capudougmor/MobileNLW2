@@ -8,32 +8,41 @@ import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavoriteIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
-const GiveClasses: React.FC = () => {
+export interface Teacher {
+  id: number;
+  avatar: string;
+  bio: string;
+  cost: number;
+  name: string;
+  subject: string;
+  whatsapp: string;
+}
 
+interface TeacherItemProps {
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   
   return (
     <View style={styles.container} >
       <View style={styles.profile} >
         <Image
           style={styles.avatar}
-          source={{ uri: 'https://avatars0.githubusercontent.com/u/60409911?s=460&u=8fdd6fe687515b06f34e33f6a4811e82d1f31712&v=4' }} 
+          source={{ uri: teacher.avatar }} 
         />
         <View style={styles.ProfileInfo} >
-          <Text style={styles.name} >Douglas Mendes</Text>
-          <Text style={styles.subject} >Matemática</Text>
+          <Text style={styles.name} >{teacher.name} </Text>
+          <Text style={styles.subject} >{teacher.subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio} >
-      Engenheiro civil formado na Universidade de Uberaba. 
-      {'\b'}{'\b'}
-      Amante dos estudos, tecnologia e esporte. Busco o aprendizado e aperfeiçoamento constante.
-      </Text>
+      <Text style={styles.bio} > {teacher.bio} </Text>
 
       <View style={styles.footer} >
         <Text style={styles.price} >
           Preço/Hora {'   '}
-          <Text style={styles.priceValue} >R$ 20,00</Text>
+          <Text style={styles.priceValue} >R$ {teacher.cost} </Text>
         </Text>
 
         <View style={styles.buttonsContainer} >
@@ -52,4 +61,4 @@ const GiveClasses: React.FC = () => {
   );
 };
 
-export default GiveClasses;
+export default TeacherItem;
